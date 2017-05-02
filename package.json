@@ -1,0 +1,20 @@
+{
+  "name": "tic-tac-terminal",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe in the Terminal",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sautumn/tic-tac-terminal.git"
+  },
+  "author": "autumn smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sautumn/tic-tac-terminal/issues"
+  },
+  "homepage": "https://github.com/sautumn/tic-tac-terminal#readme"
+}
