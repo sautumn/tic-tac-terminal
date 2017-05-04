@@ -73,7 +73,7 @@ Board.prototype.scoreRows = function () {
     }
   }
 
-  function rows(){
+  function rows() {
     for (let k = 0; k <= 6; k+=3) {
       for (let i = 1; i <= 3; i++) {
         if(_this.pointers[i+k]['display'] === 'X' ||
@@ -84,11 +84,10 @@ Board.prototype.scoreRows = function () {
       if (checkScores(scores)){
         return;
       };
-      // checkGameOver();
     }
   };
 
-  function columns(){
+  function columns() {
     for (var k = 1; k <= 3; k++) {
       for (var i = 0; i <= 6; i+=3) {
         if(_this.pointers[i+k]['display'] === 'X' ||
@@ -99,11 +98,38 @@ Board.prototype.scoreRows = function () {
       if (checkScores(scores)){
         return;
       };
-      // checkGameOver();
     }
   };
+
+  function checkLeftDiagonal() {
+    for (var i = 1; i <= 9; i+=4) {
+      if(_this.pointers[i]['display'] === 'X' ||
+      _this.pointers[i]['display'] === 'O') {
+        scores[_this.pointers[i]['display']] += _this.pointers[i]['value'];
+      }
+    }
+    if (checkScores(scores)){
+      return;
+    };
+  };
+
+  function checkRightDiagonal() {
+    for (var i = 3; i <= 7; i+=2) {
+      if(_this.pointers[i]['display'] === 'X' ||
+      _this.pointers[i]['display'] === 'O') {
+        scores[_this.pointers[i]['display']] += _this.pointers[i]['value'];
+      }
+    }
+    if (checkScores(scores)){
+      return;
+    };
+  };
+
+  checkRightDiagonal();
+  checkLeftDiagonal();
   rows();
   columns();
+
   return gameOver ? this.rl.close() : this.displayBoard();
 };
 
